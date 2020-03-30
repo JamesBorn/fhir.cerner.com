@@ -68,14 +68,14 @@ _Implementation Notes_
 `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
 [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
-Notes:   
+Notes:
 
 - The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
   For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
 
-- The `date` parameter may be provided:  
-  - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)   
-  - once without a prefix and with a time component to indicate a specific date/time. (e.g `&date=2016-07-04T13:00:00.000-05:00`)   
+- The `date` parameter may be provided:
+  - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)
+  - once without a prefix and with a time component to indicate a specific date/time. (e.g `&date=2016-07-04T13:00:00.000-05:00`)
   - twice with the prefixes `ge`, `gt`, `le`, or `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2014-03-15&date=le2017`)
 
@@ -95,6 +95,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -124,6 +126,8 @@ List an individual Appointment by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_read) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -199,6 +203,10 @@ _Implementation Notes_
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+<%= disclaimer %>
+
+Because slots become unavailable as they are filled by appointments, this specific example will result in a 422 error. You will need to find an available slot, and change the slot reference in the request body to the available slot.
+
 ## Update
 
 Update an Appointment.
@@ -265,6 +273,10 @@ In this example, only the `Appointment.status` field was updated.
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
+As appointments become unavailable, the appointment in this specific example may result in a 422 error. Try creating a new appointment off of an available slot and then updating its status if you wish to test it out.
 
 ### Errors
 

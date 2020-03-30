@@ -5,35 +5,35 @@ module Cerner
       "resourceType": "Schedule",
       "id": "21265426-633867-3121665-0",
       "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
       },
       "extension": [
-        {
-          "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-          "valueReference": {
-            "reference": "Location/633867",
-            "display": "Baseline West"
+          {
+              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+              "valueReference": {
+                  "reference": "Location/633867",
+                  "display": "Baseline West"
+              }
           }
-        }
       ],
       "type": [
-        {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine"
-            }
-          ],
-          "text": "Same Day"
-        }
+          {
+              "coding": [
+                  {
+                      "system": "http://snomed.info/sct",
+                      "code": "408443003",
+                      "display": "General medical practice"
+                  }
+              ],
+              "text": "Same Day"
+          }
       ],
       "actor": {
-        "reference": "Practitioner/2578010",
-        "display": "Song, River"
+          "reference": "Practitioner/2578010",
+          "display": "Howdeshell, Tami"
       }
-    }
+  }
 
     DSTU2_SCHEDULE_BUNDLE ||= {
       "resourceType": "Bundle",
